@@ -198,6 +198,46 @@
             width: 100%;
         }
 
+        @media (max-width: 1024px) {
+            .nav-container nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+                display: none;
+                z-index: 999;
+                border-top: 1px solid var(--gray-light);
+            }
+
+            .nav-container nav.active {
+                display: flex;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            nav a {
+                font-size: 1.1rem;
+                width: 100%;
+                display: block;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .header-actions .btn-green {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+        }
+
         .header-actions {
             display: flex;
             align-items: center;
@@ -234,6 +274,8 @@
             background: none;
             border: none;
             cursor: pointer;
+            color: var(--primary);
+            padding: 5px;
         }
 
         /* Hero */
@@ -719,45 +761,65 @@
             transform: scale(1.1);
         }
 
-        /* Mobile Adjustments */
-        @media (max-width: 968px) {
-            .nav-container nav {
-                display: none;
-            }
+        @media (max-width: 1024px) {
             .mobile-menu-btn {
                 display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 6rem 0 4rem;
+                text-align: center;
+            }
+            .hero-content {
+                margin: 0 auto;
+            }
+            .hero-btns {
+                justify-content: center;
+            }
+            .trust-bar {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1.5rem;
             }
             .contact-content {
                 grid-template-columns: 1fr;
             }
+            .contact-form-box {
+                padding: 2rem;
+            }
             .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .form-row {
                 grid-template-columns: 1fr;
+                gap: 2.5rem;
             }
         }
 
-        @media (max-width: 640px) {
-            .footer-grid {
-                grid-template-columns: 1fr;
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.2rem;
             }
-            .hero-btns {
-                flex-direction: column;
+            .hero p {
+                font-size: 1.1rem;
             }
-            .trust-bar {
-                flex-direction: column;
-                gap: 1rem;
+            .section-title h2 {
+                font-size: 2rem;
             }
-            .nav-container .btn-green {
-                padding: 0.5rem 1rem;
-                font-size: 0.8rem;
+            .testimonial-card {
+                width: 280px;
+                padding: 1.5rem;
+            }
+            .nav-prev, .nav-next {
+                display: none; /* Use swipe on small mobile */
             }
             .logo span {
-                display: none;
+                font-size: 1rem;
+            }
+            .lang-switcher {
+                gap: 2px;
+            }
+            .lang-btn {
+                padding: 4px 6px;
             }
         }
     </style>
@@ -1104,34 +1166,34 @@
                         </svg>
                         <span>Notaría Diego Simó Sevilla</span>
                     </a>
-                    <p>Notaría colegiada en Valencia centro con más de 20 años de experiencia al servicio de ciudadanos y empresas.</p>
+                    <p data-i18n="footer-tagline">Notaría colegiada en Valencia centro con más de 20 años de experiencia al servicio de ciudadanos y empresas.</p>
                 </div>
                 <div class="footer-links">
-                    <h4>Enlaces</h4>
+                    <h4 data-i18n="footer-links-title">Enlaces</h4>
                     <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#elegirnos">Por qué nosotros</a></li>
-                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#inicio" data-i18n="nav-start">Inicio</a></li>
+                        <li><a href="#servicios" data-i18n="nav-services">Servicios</a></li>
+                        <li><a href="#elegirnos" data-i18n="nav-why">Por qué nosotros</a></li>
+                        <li><a href="#contacto" data-i18n="nav-contact">Contacto</a></li>
                     </ul>
                 </div>
                 <div class="footer-badges">
-                    <h4>Servicio Multilingüe</h4>
+                    <h4 data-i18n="footer-lang-title">Servicio Multilingüe</h4>
                     <div class="badge-list">
                         <span class="lang-badge">ES</span>
                         <span class="lang-badge">EN</span>
                         <span class="lang-badge">FR</span>
                     </div>
-                    <div class="colegio-mention">
+                    <div class="colegio-mention" data-i18n="footer-colegio">
                         Miembro del Ilustre Colegio Notarial de Valencia.
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Notaría Diego Simó Sevilla. Todos los derechos reservados.</p>
+                <p data-i18n="footer-copy">&copy; 2025 Notaría Diego Simó Sevilla. Todos los derechos reservados.</p>
                 <div class="footer-legal">
-                    <a href="#">Aviso Legal</a>
-                    <a href="#">Política de Privacidad</a>
+                    <a href="#" data-i18n="footer-legal">Aviso Legal</a>
+                    <a href="#" data-i18n="footer-privacy">Política de Privacidad</a>
                 </div>
             </div>
         </div>
@@ -1255,7 +1317,16 @@
                 "review3-text": "\"Notaría multilingüe y muy céntrica. Altamente recomendable tras muchos años de gestiones de todo tipo.\"",
                 "review4-text": "\"Trato amable y rápido. Me explicaron todo el proceso de la herencia con mucha claridad. Precio ajustado.\"",
                 "review5-text": "\"Mi notaría de confianza. Servicio y precio inmejorables. El notario es muy agradable y pragmático.\"",
-                "review6-text": "\"El mejor notario de Valencia. Cordial y disponible. Precio óptimo para una transacción inmobiliaria.\""
+                "review6-text": "\"El mejor notario de Valencia. Cordial y disponible. Precio óptimo para una transacción inmobiliaria.\"",
+                "footer-tagline": "Notaría colegiada en Valencia centro con más de 20 años de experiencia al servicio de ciudadanos y empresas.",
+                "footer-links-title": "Enlaces",
+                "footer-lang-title": "Servicio Multilingüe",
+                "footer-colegio": "Miembro del Ilustre Colegio Notarial de Valencia.",
+                "footer-copy": "© 2025 Notaría Diego Simó Sevilla. Todos los derechos reservados.",
+                "footer-legal": "Aviso Legal",
+                "footer-privacy": "Política de Privacidad",
+                "form-placeholder-name": "Ej: Juan Pérez",
+                "form-placeholder-msg": "¿En qué podemos ayudarle?"
             },
             en: {
                 "nav-start": "Home",
@@ -1327,7 +1398,16 @@
                 "review3-text": "\"Multilingual and very central notary. Highly recommended after many years of management of all kinds.\"",
                 "review4-text": "\"Friendly and fast treatment. They explained the whole inheritance process to me very clearly. Adjusted price.\"",
                 "review5-text": "\"My trusted notary office. Unbeatable service and price. The notary is very pleasant and pragmatic.\"",
-                "review6-text": "\"The best notary in Valencia. Cordial and available. Optimal price for a real estate transaction.\""
+                "review6-text": "\"The best notary in Valencia. Cordial and available. Optimal price for a real estate transaction.\"",
+                "footer-tagline": "Collegiate notary office in central Valencia with more than 20 years of experience serving citizens and companies.",
+                "footer-links-title": "Links",
+                "footer-lang-title": "Multilingual Service",
+                "footer-colegio": "Member of the Illustrious Notarial College of Valencia.",
+                "footer-copy": "© 2025 Notaría Diego Simó Sevilla. All rights reserved.",
+                "footer-legal": "Legal Notice",
+                "footer-privacy": "Privacy Policy",
+                "form-placeholder-name": "Ex: John Doe",
+                "form-placeholder-msg": "How can we help you?"
             },
             fr: {
                 "nav-start": "Accueil",
@@ -1399,7 +1479,16 @@
                 "review3-text": "\"Notaire multilingue et très central. Hautement recommandé après de nombreuses années de gestion de toutes sortes.\"",
                 "review4-text": "\"Traitement amical et rapide. Ils m'ont expliqué tout le processus d'héritage très clairement. Prix ajusté.\"",
                 "review5-text": "\"Mon notaire de confiance. Service et prix imbattables. Le notaire est très agréable et pragmatique.\"",
-                "review6-text": "\"Le meilleur notaire de Valence. Cordial et disponible. Prix optimal pour une transaction immobilière.\""
+                "review6-text": "\"Le meilleur notaire de Valence. Cordial et disponible. Prix optimal pour une transaction immobilière.\"",
+                "footer-tagline": "Étude notariale collégiale au centre de Valence avec plus de 20 ans d'expérience au service des citoyens et des entreprises.",
+                "footer-links-title": "Liens",
+                "footer-lang-title": "Service Multilingüe",
+                "footer-colegio": "Membre de l'Illustre Collège Notarial de Valence.",
+                "footer-copy": "© 2025 Notaría Diego Simó Sevilla. Tous droits réservés.",
+                "footer-legal": "Mentions Légales",
+                "footer-privacy": "Politique de Confidentialité",
+                "form-placeholder-name": "Ex: Jean Dupont",
+                "form-placeholder-msg": "Comment pouvons-nous vous aider ?"
             }
         };
 
@@ -1423,10 +1512,14 @@
             });
 
             // Update placeholders
-            document.querySelectorAll('[placeholder]').forEach(el => {
-                // For simplicity, we only update specific placeholders if needed
-                // or use keys for them. Let's stick to the main UI for now.
-            });
+            const nameInput = document.getElementById('name');
+            const msgInput = document.getElementById('message');
+            if (nameInput && translations[lang]['form-placeholder-name']) {
+                nameInput.placeholder = translations[lang]['form-placeholder-name'];
+            }
+            if (msgInput && translations[lang]['form-placeholder-msg']) {
+                msgInput.placeholder = translations[lang]['form-placeholder-msg'];
+            }
 
             // Update HTML lang attribute
             document.documentElement.lang = lang;
@@ -1499,35 +1592,26 @@
             });
         };
 
-        // Mobile Menu
         const handleMobileMenu = () => {
             const btn = document.querySelector('.mobile-menu-btn');
             const nav = document.getElementById('main-nav');
-            const items = nav.querySelector('ul');
             
             btn.addEventListener('click', () => {
-                if (items.style.display === 'flex') {
-                    items.style.display = 'none';
-                } else {
-                    items.style.display = 'flex';
-                    items.style.flexDirection = 'column';
-                    items.style.position = 'absolute';
-                    items.style.top = '80px';
-                    items.style.left = '0';
-                    items.style.width = '100%';
-                    items.style.background = 'white';
-                    items.style.padding = '2rem';
-                    items.style.boxShadow = '0 10px 15px rgba(0,0,0,0.1)';
-                }
+                nav.classList.toggle('active');
             });
 
             // Close menu on link click
-            items.querySelectorAll('a').forEach(link => {
+            nav.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
-                    if (window.innerWidth <= 968) {
-                        items.style.display = 'none';
-                    }
+                    nav.classList.remove('active');
                 });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!nav.contains(e.target) && !btn.contains(e.target)) {
+                    nav.classList.remove('active');
+                }
             });
         };
 
