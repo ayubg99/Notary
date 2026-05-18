@@ -1451,20 +1451,51 @@
         const handleForm = () => {
             const form = document.getElementById('appointment-form');
             const successMsg = document.getElementById('form-success');
+            const submitBtn = form.querySelector('button[type="submit"]');
 
-            form.addEventListener('submit', (e) => {
+            form.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                // Simulation of form submission
+                
+                // Get form data
+                const formData = new FormData(form);
+                const data = {
+                    name: formData.get('name'),
+                    phone: formData.get('phone'),
+                    email: formData.get('email'),
+                    service: formData.get('service'),
+                    lang: formData.get('lang'),
+                    message: formData.get('message')
+                };
+
+                // UI feedback
                 form.style.opacity = '0.5';
                 form.querySelectorAll('input, select, textarea, button').forEach(el => el.disabled = true);
                 
-                setTimeout(() => {
-                    form.reset();
+                try {
+                    const response = await fetch('/api/contact', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data),
+                    });
+
+                    const result = await response.json();
+
+                    if (result.success) {
+                        form.reset();
+                        successMsg.style.display = 'block';
+                        submitBtn.style.display = 'none';
+                    } else {
+                        throw new Error(result.message || 'Error sending message');
+                    }
+                } catch (error) {
+                    console.error('Submission error:', error);
+                    alert(currentLang === 'es' ? 'Error al enviar la solicitud. Por favor, inténtelo de nuevo.' : 'Error sending request. Please try again.');
+                } finally {
                     form.style.opacity = '1';
                     form.querySelectorAll('input, select, textarea, button').forEach(el => el.disabled = false);
-                    successMsg.style.display = 'block';
-                    form.querySelector('button').style.display = 'none';
-                }, 1000);
+                }
             });
         };
 
