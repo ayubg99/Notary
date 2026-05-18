@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notaría Diego Simó Sevilla | Notaría en el centro de Valencia</title>
+    <meta name="description" content="Servicios notariales profesionales en Valencia. Diego Simó Sevilla, notario colegiado. Compraventas, herencias, testamentos y empresa. Atención en ES, EN, FR.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Notaría Diego Simó Sevilla | Valencia">
+    <meta property="og:description" content="Notaría de confianza en el centro de Valencia. Especialistas en derecho civil y mercantil.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.notariadiegosimo.es">
+    
+    <link rel="canonical" href="https://www.notariadiegosimo.es">
+
+    <!-- Fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+    </style>
+
+    <style>
+        :root {
+            --primary: #0A1628;
+            --accent: #C9A84C;
+            --bg: #F8F7F4;
+            --text: #1A1A2E;
+            --white: #FFFFFF;
+            --success: #2ECC71;
+            --gray-light: #E5E7EB;
+            --gray-dark: #4B5563;
+            
+            --f-display: 'Playfair Display', serif;
+            --f-body: 'Inter', sans-serif;
+            
+            --shadow-subtle: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-card: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--f-body);
+            color: var(--text);
+            background-color: var(--bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-display {
+            font-family: var(--f-display);
+            font-weight: 700;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .section {
+            padding: 5rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 2rem;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(201, 168, 76, 0.3);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-green {
+            background-color: #25D366;
+            color: var(--white);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* Header */
+        header {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background-color: var(--white);
+            z-index: 1000;
+            box-shadow: var(--shadow-subtle);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            font-family: var(--f-display);
+        }
+
+        .logo svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 4px;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #15253D 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 8rem 0 6rem;
+            color: var(--white);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 40%, rgba(201, 168, 76, 0.05) 50%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .trust-bar {
+            display: flex;
+            gap: 3rem;
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Services */
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent);
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid transparent;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: var(--shadow-card);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+        }
+
+        .services-cta {
+            text-align: center;
+            margin-top: 3rem;
+            font-weight: 500;
+        }
+
+        .services-cta a {
+            color: var(--accent);
+        }
+
+        /* Why Choose */
+        .why-choose {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .why-choose .section-title h2 {
+            color: var(--white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
+        }
+
+        .feature-item {
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .feature-stat {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+            font-family: var(--f-display);
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            overflow: hidden;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 2rem;
+            padding-bottom: 1rem;
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .carousel::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .testimonial-card {
+            min-width: 350px;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            scroll-snap-align: start;
+            box-shadow: var(--shadow-subtle);
+            flex-shrink: 0;
+        }
+
+        .stars {
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .quote {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--text);
+        }
+
+        .reviewer {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background-color: var(--accent);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+
+        .reviewer-info span {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .google-rating {
+            text-align: center;
+            margin-top: 3rem;
+            font-weight: 500;
+        }
+
+        /* Contact */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form-box {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--gray-light);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .radio-option input {
+            width: auto;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+
+        .info-list li {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-icon {
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 250px;
+            background-color: #eee;
+            border-radius: 8px;
+            margin-top: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1rem;
+            border: 1px solid var(--gray-light);
+            transition: var(--transition);
+        }
+
+        .map-placeholder:hover {
+            background-color: #e5e5e5;
+        }
+
+        /* Success Message */
+        #form-success {
+            display: none;
+            background-color: rgba(46, 204, 113, 0.1);
+            color: var(--success);
+            padding: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.5fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo .logo {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            max-width: 300px;
+        }
+
+        .footer-links h4, .footer-badges h4 {
+            font-family: var(--f-display);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .badge-list {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .lang-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .colegio-mention {
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+
+        /* Floating WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1001;
+            transition: var(--transition);
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 968px) {
+            .nav-container nav {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-btns {
+                flex-direction: column;
+            }
+            .trust-bar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .nav-container .btn-green {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+            .logo span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L3 7v2c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5zM12 4.14l7 3.89v1c0 4.1-2.73 8.01-7 9.11-4.27-1.1-7-5.01-7-9.11v-1l7-3.89zM12 7c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM11 12v5h2v-5h-2z"/>
+                </svg>
+                <span>Notaría Diego Simó Sevilla</span>
+            </a>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#elegirnos">Por qué nosotros</a></li>
+                    <li><a href="#opiniones">Opiniones</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <a href="tel:+34963528568" class="btn btn-green">📞 Llamar ahora</a>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="inicio">
+            <div class="container hero-content">
+                <h1>Su Notaría de Confianza en Valencia</h1>
+                <p>Servicios notariales en español, inglés y francés. Rápidos, profesionales y con la seguridad jurídica que necesita. Ubicados en el corazón de Valencia.</p>
+                <div class="hero-btns">
+                    <a href="#contacto" class="btn btn-primary">Solicitar Cita</a>
+                    <a href="#servicios" class="btn btn-outline">Ver Servicios</a>
+                </div>
+                <div class="trust-bar">
+                    <div class="trust-item"><span>⚖️</span> Notario Colegiado</div>
+                    <div class="trust-item"><span>🌍</span> Atención en 3 idiomas</div>
+                    <div class="trust-item"><span>⭐</span> +20 años de experiencia</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section container" id="servicios">
+            <div class="section-title">
+                <h2>Nuestros Servicios Notariales</h2>
+                <p>Ofrecemos una amplia gama de trámites con agilidad y rigor</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Compraventa de Inmuebles</h3>
+                    <p>Escrituras de compra, venta y transmisión de propiedades con total garantía jurídica.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📜</div>
+                    <h3>Testamentos</h3>
+                    <p>Redacción y firma de últimas voluntades con total confidencialidad y asesoramiento experto.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Poderes Notariales</h3>
+                    <p>Poderes generales, especiales y preventivos para gestionar sus asuntos con seguridad.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Constitución de Sociedades</h3>
+                    <p>Constitución y modificación de empresas, estatutos y actos mercantiles.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💶</div>
+                    <h3>Herencias</h3>
+                    <p>Aceptación, renuncia y adjudicación de herencias de forma ágil y transparente.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔏</div>
+                    <h3>Actas Notariales</h3>
+                    <p>Actas de presencia, manifestación y notoriedad para dejar constancia fehaciente.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👨‍👩‍👧</div>
+                    <h3>Capitulaciones Matrimoniales</h3>
+                    <p>Régimen económico matrimonial y acuerdos prenupciales adaptados a sus necesidades.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Servicios para Extranjeros</h3>
+                    <p>Atención especializada en inglés y francés para residentes y no residentes en España.</p>
+                </div>
+            </div>
+            <div class="services-cta">
+                <p>¿No encuentra lo que busca? <a href="#contacto">Consúltenos sin compromiso →</a></p>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="section why-choose" id="elegirnos">
+            <div class="container">
+                <div class="section-title">
+                    <h2>¿Por qué elegir nuestra notaría?</h2>
+                    <p>Diferenciación basada en el servicio al cliente y la eficiencia</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <span class="feature-icon">✅</span>
+                        <div class="feature-stat">Precio Justo</div>
+                        <p>Gestión eficiente que permite costes competitivos en Valencia.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">⚡</span>
+                        <div class="feature-stat">Rapidez</div>
+                        <p>Gestión urgente disponible. Documentos listos en tiempo récord.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">🌍</span>
+                        <div class="feature-stat">Multilingüe</div>
+                        <p>Atención fluida en español, inglés y francés. Sin barreras idiomáticas.</p>
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">📍</span>
+                        <div class="feature-stat">Ubicación Céntrica</div>
+                        <p>En pleno Eixample. Fácil acceso y excelente comunicación.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="section container" id="opiniones">
+            <div class="section-title">
+                <h2>Lo que dicen nuestros clientes</h2>
+                <p>La confianza de nuestros clientes es nuestro mayor aval</p>
+            </div>
+            <div class="carousel-wrapper">
+                <div class="carousel" id="testimonial-carousel">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"Excelente servicio, muy buena atención. La mejor notaría en Valencia tras haber pasado por varias."</p>
+                        <div class="reviewer">
+                            <div class="avatar">MR</div>
+                            <div class="reviewer-info">
+                                <span>Marta R.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"Fast & reliable, they processed our documents on short notice. The notary and assistant speak excellent English. Highly recommended."</p>
+                        <div class="reviewer">
+                            <div class="avatar">JT</div>
+                            <div class="reviewer-info">
+                                <span>James T.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"Notaría multilingüe y muy céntrica. Altamente recomendable tras muchos años de gestiones de todo tipo."</p>
+                        <div class="reviewer">
+                            <div class="avatar">CM</div>
+                            <div class="reviewer-info">
+                                <span>Carlos M.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"Trato amable y rápido. Me explicaron todo el proceso de la herencia con mucha claridad. Precio ajustado."</p>
+                        <div class="reviewer">
+                            <div class="avatar">AP</div>
+                            <div class="reviewer-info">
+                                <span>Ana P.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"Mi notaría de confianza. Servicio y precio inmejorables. El notario es muy agradable y pragmático."</p>
+                        <div class="reviewer">
+                            <div class="avatar">LF</div>
+                            <div class="reviewer-info">
+                                <span>Luis F.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"Le meilleur notaire de Valence. Cordial et disponible. Prix optimal pour une transaction immobilière."</p>
+                        <div class="reviewer">
+                            <div class="avatar">SD</div>
+                            <div class="reviewer-info">
+                                <span>Sophie D.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="google-rating">
+                <span>Google Maps Rating: ⭐ 4.8 / 5 · basado en más de 20 opiniones</span>
+            </div>
+        </section>
+
+        <!-- Appointment / Contact -->
+        <section class="section container" id="contacto">
+            <div class="section-title">
+                <h2>Solicite su Cita</h2>
+                <p>Estaremos encantados de atenderle y resolver sus dudas</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-form-box">
+                    <form id="appointment-form">
+                        <div class="form-group">
+                            <label for="name">Nombre completo *</label>
+                            <input type="text" id="name" name="name" required placeholder="Ej: Juan Pérez">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Teléfono *</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="963 00 00 00">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="correo@ejemplo.com">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Servicio requerido</label>
+                            <select id="service" name="service">
+                                <option value="">Seleccione un servicio...</option>
+                                <option value="compraventa">Compraventa de Inmuebles</option>
+                                <option value="testamentos">Testamentos</option>
+                                <option value="poderes">Poderes Notariales</option>
+                                <option value="sociedades">Constitución de Sociedades</option>
+                                <option value="herencias">Herencias</option>
+                                <option value="actas">Actas Notariales</option>
+                                <option value="capitulaciones">Capitulaciones Matrimoniales</option>
+                                <option value="extranjeros">Servicios para Extranjeros</option>
+                                <option value="otros">Otros trámites</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Idioma preferido</label>
+                            <div class="radio-group">
+                                <label class="radio-option">
+                                    <input type="radio" name="lang" value="es" checked> Español
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="lang" value="en"> English
+                                </label>
+                                <label class="radio-option">
+                                    <input type="radio" name="lang" value="fr"> Français
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensaje / Descripción breve</label>
+                            <textarea id="message" name="message" rows="4" placeholder="¿En qué podemos ayudarle?"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Solicitud de Cita</button>
+                        <div id="form-success">¡Gracias! Nos pondremos en contacto en breve para confirmar su cita.</div>
+                    </form>
+                </div>
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <ul class="info-list">
+                        <li>
+                            <span class="info-icon">📞</span>
+                            <div>
+                                <strong>Teléfono</strong><br>
+                                <a href="tel:+34963528568">963 52 85 68</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="info-icon">📠</span>
+                            <div>
+                                <strong>Fax</strong><br>
+                                963 52 53 54
+                            </div>
+                        </li>
+                        <li>
+                            <span class="info-icon">📧</span>
+                            <div>
+                                <strong>Email</strong><br>
+                                <a href="mailto:info@notariadiegosimo.es">info@notariadiegosimo.es</a>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="info-icon">📍</span>
+                            <div>
+                                <strong>Dirección</strong><br>
+                                Gran Vía del Marqués del Túria, 49, 3º — 46005 Valencia
+                            </div>
+                        </li>
+                        <li>
+                            <span class="info-icon">🕐</span>
+                            <div>
+                                <strong>Horario</strong><br>
+                                L–V: 9:30–14:00 y 16:00–19:30<br>
+                                <small>Cerrado del 15 al 25 de agosto.</small>
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="https://maps.google.com/?q=Gran+Vía+del+Marqués+del+Túria+49+Valencia" target="_blank" class="map-placeholder">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="var(--accent)">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        <span>Ver en Google Maps</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-logo">
+                    <a href="#" class="logo">
+                        <svg viewBox="0 0 24 24" fill="var(--accent)">
+                            <path d="M12 2L3 7v2c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5zM12 4.14l7 3.89v1c0 4.1-2.73 8.01-7 9.11-4.27-1.1-7-5.01-7-9.11v-1l7-3.89zM12 7c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM11 12v5h2v-5h-2z"/>
+                        </svg>
+                        <span>Notaría Diego Simó Sevilla</span>
+                    </a>
+                    <p>Notaría colegiada en Valencia centro con más de 20 años de experiencia al servicio de ciudadanos y empresas.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#elegirnos">Por qué nosotros</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-badges">
+                    <h4>Servicio Multilingüe</h4>
+                    <div class="badge-list">
+                        <span class="lang-badge">ES</span>
+                        <span class="lang-badge">EN</span>
+                        <span class="lang-badge">FR</span>
+                    </div>
+                    <div class="colegio-mention">
+                        Miembro del Ilustre Colegio Notarial de Valencia.
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Notaría Diego Simó Sevilla. Todos los derechos reservados.</p>
+                <div class="footer-legal">
+                    <a href="#">Aviso Legal</a>
+                    <a href="#">Política de Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/34963528568" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Notary",
+      "name": "Notaría Diego Simó Sevilla",
+      "image": "https://www.notariadiegosimo.es/logo.png",
+      "@id": "https://www.notariadiegosimo.es",
+      "url": "https://www.notariadiegosimo.es",
+      "telephone": "+34963528568",
+      "priceRange": "€€",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Gran Vía del Marqués del Túria, 49, 3º",
+        "addressLocality": "Valencia",
+        "postalCode": "46005",
+        "addressCountry": "ES"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 39.4673,
+        "longitude": -0.3685
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:30",
+        "closes": "19:30"
+      },
+      "sameAs": []
+    }
+    </script>
+
+    <script>
+        // Reveal sections on scroll
+        const observeSections = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.section').forEach(section => {
+                observer.observe(section);
+            });
+        };
+
+        // Form Submission
+        const handleForm = () => {
+            const form = document.getElementById('appointment-form');
+            const successMsg = document.getElementById('form-success');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Simulation of form submission
+                form.style.opacity = '0.5';
+                form.querySelectorAll('input, select, textarea, button').forEach(el => el.disabled = true);
+                
+                setTimeout(() => {
+                    form.reset();
+                    form.style.opacity = '1';
+                    form.querySelectorAll('input, select, textarea, button').forEach(el => el.disabled = false);
+                    successMsg.style.display = 'block';
+                    form.querySelector('button').style.display = 'none';
+                }, 1000);
+            });
+        };
+
+        // Mobile Menu
+        const handleMobileMenu = () => {
+            const btn = document.querySelector('.mobile-menu-btn');
+            const nav = document.getElementById('main-nav');
+            
+            btn.addEventListener('click', () => {
+                // In a single page, we can just toggle a class or scroll
+                // For simplicity, we just scroll to the top nav or show links
+                const items = nav.querySelector('ul');
+                if (items.style.display === 'flex') {
+                    items.style.display = 'none';
+                } else {
+                    items.style.display = 'flex';
+                    items.style.flexDirection = 'column';
+                    items.style.position = 'absolute';
+                    items.style.top = '80px';
+                    items.style.left = '0';
+                    items.style.width = '100%';
+                    items.style.background = 'white';
+                    items.style.padding = '2rem';
+                    items.style.boxShadow = '0 10px 15px rgba(0,0,0,0.1)';
+                }
+            });
+        };
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            observeSections();
+            handleForm();
+            handleMobileMenu();
+        });
+    </script>
+</body>
+</html>

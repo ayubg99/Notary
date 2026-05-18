@@ -1,0 +1,8 @@
+{
+  "name": "Notaría Diego Simó Sevilla",
+  "description": "Sitio web profesional de la Notaría Diego Simó Sevilla en Valencia. Servicios notariales rápidos y multilingües.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
