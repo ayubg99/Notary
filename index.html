@@ -198,6 +198,37 @@
             width: 100%;
         }
 
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 0.5rem;
+            background: var(--bg);
+            padding: 4px;
+            border-radius: 4px;
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            padding: 4px 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 2px;
+            transition: var(--transition);
+            color: var(--gray-dark);
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: var(--white);
+        }
+
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -380,6 +411,8 @@
         .carousel-wrapper {
             position: relative;
             padding: 2rem 0;
+            display: flex;
+            align-items: center;
         }
 
         .carousel {
@@ -387,22 +420,53 @@
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             gap: 2rem;
-            padding-bottom: 1rem;
+            padding: 1rem 0 2rem;
             scrollbar-width: none; /* Firefox */
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
         }
 
         .carousel::-webkit-scrollbar {
             display: none; /* Chrome, Safari, Opera */
         }
 
+        .nav-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45px;
+            height: 45px;
+            background: var(--white);
+            border: 1px solid var(--gray-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: var(--shadow-subtle);
+            transition: var(--transition);
+            color: var(--primary);
+        }
+
+        .nav-control:hover {
+            background: var(--accent);
+            color: var(--white);
+            border-color: var(--accent);
+        }
+
+        .nav-prev { left: -22px; }
+        .nav-next { right: -22px; }
+
         .testimonial-card {
-            min-width: 350px;
+            width: clamp(300px, 45vw, 500px);
             background: var(--white);
             padding: 2.5rem;
             border-radius: 8px;
-            scroll-snap-align: start;
+            scroll-snap-align: center;
             box-shadow: var(--shadow-subtle);
             flex-shrink: 0;
+            border: 1px solid var(--gray-light);
         }
 
         .stars {
@@ -710,14 +774,21 @@
             </a>
             <nav id="main-nav">
                 <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#elegirnos">Por qué nosotros</a></li>
-                    <li><a href="#opiniones">Opiniones</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="#inicio" data-i18n="nav-start">Inicio</a></li>
+                    <li><a href="#servicios" data-i18n="nav-services">Servicios</a></li>
+                    <li><a href="#elegirnos" data-i18n="nav-why">Por qué nosotros</a></li>
+                    <li><a href="#opiniones" data-i18n="nav-reviews">Opiniones</a></li>
+                    <li><a href="#contacto" data-i18n="nav-contact">Contacto</a></li>
                 </ul>
             </nav>
-            <a href="tel:+34963528568" class="btn btn-green">📞 Llamar ahora</a>
+            <div class="header-actions">
+                <div class="lang-switcher">
+                    <button class="lang-btn active" data-lang="es">ES</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="fr">FR</button>
+                </div>
+                <a href="tel:+34963528568" class="btn btn-green"><span data-i18n="cta-call">📞 Llamar ahora</span></a>
+            </div>
             <button class="mobile-menu-btn" aria-label="Menu">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -732,16 +803,16 @@
         <!-- Hero Section -->
         <section class="hero" id="inicio">
             <div class="container hero-content">
-                <h1>Su Notaría de Confianza en Valencia</h1>
-                <p>Servicios notariales en español, inglés y francés. Rápidos, profesionales y con la seguridad jurídica que necesita. Ubicados en el corazón de Valencia.</p>
+                <h1 data-i18n="hero-title">Su Notaría de Confianza en Valencia</h1>
+                <p data-i18n="hero-subtitle">Servicios notariales en español, inglés y francés. Rápidos, profesionales y con la seguridad jurídica que necesita. Ubicados en el corazón de Valencia.</p>
                 <div class="hero-btns">
-                    <a href="#contacto" class="btn btn-primary">Solicitar Cita</a>
-                    <a href="#servicios" class="btn btn-outline">Ver Servicios</a>
+                    <a href="#contacto" class="btn btn-primary" data-i18n="hero-cta-appointment">Solicitar Cita</a>
+                    <a href="#servicios" class="btn btn-outline" data-i18n="hero-cta-services">Ver Servicios</a>
                 </div>
                 <div class="trust-bar">
-                    <div class="trust-item"><span>⚖️</span> Notario Colegiado</div>
-                    <div class="trust-item"><span>🌍</span> Atención en 3 idiomas</div>
-                    <div class="trust-item"><span>⭐</span> +20 años de experiencia</div>
+                    <div class="trust-item"><span>⚖️</span> <span data-i18n="trust-item1">Notario Colegiado</span></div>
+                    <div class="trust-item"><span>🌍</span> <span data-i18n="trust-item2">Atención en 3 idiomas</span></div>
+                    <div class="trust-item"><span>⭐</span> <span data-i18n="trust-item3">+20 años de experiencia</span></div>
                 </div>
             </div>
         </section>
@@ -749,53 +820,53 @@
         <!-- Services Section -->
         <section class="section container" id="servicios">
             <div class="section-title">
-                <h2>Nuestros Servicios Notariales</h2>
-                <p>Ofrecemos una amplia gama de trámites con agilidad y rigor</p>
+                <h2 data-i18n="services-title">Nuestros Servicios Notariales</h2>
+                <p data-i18n="services-subtitle">Ofrecemos una amplia gama de trámites con agilidad y rigor</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">🏠</div>
-                    <h3>Compraventa de Inmuebles</h3>
-                    <p>Escrituras de compra, venta y transmisión de propiedades con total garantía jurídica.</p>
+                    <h3 data-i18n="service1-title">Compraventa de Inmuebles</h3>
+                    <p data-i18n="service1-desc">Escrituras de compra, venta y transmisión de propiedades con total garantía jurídica.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">📜</div>
-                    <h3>Testamentos</h3>
-                    <p>Redacción y firma de últimas voluntades con total confidencialidad y asesoramiento experto.</p>
+                    <h3 data-i18n="service2-title">Testamentos</h3>
+                    <p data-i18n="service2-desc">Redacción y firma de últimas voluntades con total confidencialidad y asesoramiento experto.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">📋</div>
-                    <h3>Poderes Notariales</h3>
-                    <p>Poderes generales, especiales y preventivos para gestionar sus asuntos con seguridad.</p>
+                    <h3 data-i18n="service3-title">Poderes Notariales</h3>
+                    <p data-i18n="service3-desc">Poderes generales, especiales y preventivos para gestionar sus asuntos con seguridad.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🏢</div>
-                    <h3>Constitución de Sociedades</h3>
-                    <p>Constitución y modificación de empresas, estatutos y actos mercantiles.</p>
+                    <h3 data-i18n="service4-title">Constitución de Sociedades</h3>
+                    <p data-i18n="service4-desc">Constitución y modificación de empresas, estatutos y actos mercantiles.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">💶</div>
-                    <h3>Herencias</h3>
-                    <p>Aceptación, renuncia y adjudicación de herencias de forma ágil y transparente.</p>
+                    <h3 data-i18n="service5-title">Herencias</h3>
+                    <p data-i18n="service5-desc">Aceptación, renuncia y adjudicación de herencias de forma ágil y transparente.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🔏</div>
-                    <h3>Actas Notariales</h3>
-                    <p>Actas de presencia, manifestación y notoriedad para dejar constancia fehaciente.</p>
+                    <h3 data-i18n="service6-title">Actas Notariales</h3>
+                    <p data-i18n="service6-desc">Actas de presencia, manifestación y notoriedad para dejar constancia fehaciente.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">👨‍👩‍👧</div>
-                    <h3>Capitulaciones Matrimoniales</h3>
-                    <p>Régimen económico matrimonial y acuerdos prenupciales adaptados a sus necesidades.</p>
+                    <h3 data-i18n="service7-title">Capitulaciones Matrimoniales</h3>
+                    <p data-i18n="service7-desc">Régimen económico matrimonial y acuerdos prenupciales adaptados a sus necesidades.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">🌐</div>
-                    <h3>Servicios para Extranjeros</h3>
-                    <p>Atención especializada en inglés y francés para residentes y no residentes en España.</p>
+                    <h3 data-i18n="service8-title">Servicios para Extranjeros</h3>
+                    <p data-i18n="service8-desc">Atención especializada en inglés y francés para residentes y no residentes en España.</p>
                 </div>
             </div>
             <div class="services-cta">
-                <p>¿No encuentra lo que busca? <a href="#contacto">Consúltenos sin compromiso →</a></p>
+                <p><span data-i18n="services-bottom-text">¿No encuentra lo que busca?</span> <a href="#contacto" data-i18n="services-bottom-link">Consúltenos sin compromiso →</a></p>
             </div>
         </section>
 
@@ -803,29 +874,29 @@
         <section class="section why-choose" id="elegirnos">
             <div class="container">
                 <div class="section-title">
-                    <h2>¿Por qué elegir nuestra notaría?</h2>
-                    <p>Diferenciación basada en el servicio al cliente y la eficiencia</p>
+                    <h2 data-i18n="why-title">¿Por qué elegir nuestra notaría?</h2>
+                    <p data-i18n="why-subtitle">Diferenciación basada en el servicio al cliente y la eficiencia</p>
                 </div>
                 <div class="features-grid">
                     <div class="feature-item">
                         <span class="feature-icon">✅</span>
-                        <div class="feature-stat">Precio Justo</div>
-                        <p>Gestión eficiente que permite costes competitivos en Valencia.</p>
+                        <div class="feature-stat" data-i18n="feature1-title">Precio Justo</div>
+                        <p data-i18n="feature1-desc">Gestión eficiente que permite costes competitivos en Valencia.</p>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">⚡</span>
-                        <div class="feature-stat">Rapidez</div>
-                        <p>Gestión urgente disponible. Documentos listos en tiempo récord.</p>
+                        <div class="feature-stat" data-i18n="feature2-title">Rapidez</div>
+                        <p data-i18n="feature2-desc">Gestión urgente disponible. Documentos listos en tiempo récord.</p>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">🌍</span>
-                        <div class="feature-stat">Multilingüe</div>
-                        <p>Atención fluida en español, inglés y francés. Sin barreras idiomáticas.</p>
+                        <div class="feature-stat" data-i18n="feature3-title">Multilingüe</div>
+                        <p data-i18n="feature3-desc">Atención fluida en español, inglés y francés. Sin barreras idiomáticas.</p>
                     </div>
                     <div class="feature-item">
                         <span class="feature-icon">📍</span>
-                        <div class="feature-stat">Ubicación Céntrica</div>
-                        <p>En pleno Eixample. Fácil acceso y excelente comunicación.</p>
+                        <div class="feature-stat" data-i18n="feature4-title">Ubicación Céntrica</div>
+                        <p data-i18n="feature4-desc">En pleno Eixample. Fácil acceso y excelente comunicación.</p>
                     </div>
                 </div>
             </div>
@@ -838,10 +909,13 @@
                 <p>La confianza de nuestros clientes es nuestro mayor aval</p>
             </div>
             <div class="carousel-wrapper">
+                <button class="nav-control nav-prev" id="prev-btn" aria-label="Anterior">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
                 <div class="carousel" id="testimonial-carousel">
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
-                        <p class="quote">"Excelente servicio, muy buena atención. La mejor notaría en Valencia tras haber pasado por varias."</p>
+                        <p class="quote" data-i18n="review1-text">"Excelente servicio, muy buena atención. La mejor notaría en Valencia tras haber pasado por varias."</p>
                         <div class="reviewer">
                             <div class="avatar">MR</div>
                             <div class="reviewer-info">
@@ -851,7 +925,7 @@
                     </div>
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
-                        <p class="quote">"Fast & reliable, they processed our documents on short notice. The notary and assistant speak excellent English. Highly recommended."</p>
+                        <p class="quote" data-i18n="review2-text">"Fast & reliable, they processed our documents on short notice. The notary and assistant speak excellent English. Highly recommended."</p>
                         <div class="reviewer">
                             <div class="avatar">JT</div>
                             <div class="reviewer-info">
@@ -861,7 +935,7 @@
                     </div>
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
-                        <p class="quote">"Notaría multilingüe y muy céntrica. Altamente recomendable tras muchos años de gestiones de todo tipo."</p>
+                        <p class="quote" data-i18n="review3-text">"Notaría multilingüe y muy céntrica. Altamente recomendable tras muchos años de gestiones de todo tipo."</p>
                         <div class="reviewer">
                             <div class="avatar">CM</div>
                             <div class="reviewer-info">
@@ -871,7 +945,7 @@
                     </div>
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
-                        <p class="quote">"Trato amable y rápido. Me explicaron todo el proceso de la herencia con mucha claridad. Precio ajustado."</p>
+                        <p class="quote" data-i18n="review4-text">"Trato amable y rápido. Me explicaron todo el proceso de la herencia con mucha claridad. Precio ajustado."</p>
                         <div class="reviewer">
                             <div class="avatar">AP</div>
                             <div class="reviewer-info">
@@ -881,7 +955,7 @@
                     </div>
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
-                        <p class="quote">"Mi notaría de confianza. Servicio y precio inmejorables. El notario es muy agradable y pragmático."</p>
+                        <p class="quote" data-i18n="review5-text">"Mi notaría de confianza. Servicio y precio inmejorables. El notario es muy agradable y pragmático."</p>
                         <div class="reviewer">
                             <div class="avatar">LF</div>
                             <div class="reviewer-info">
@@ -891,7 +965,7 @@
                     </div>
                     <div class="testimonial-card">
                         <div class="stars">★★★★★</div>
-                        <p class="quote">"Le meilleur notaire de Valence. Cordial et disponible. Prix optimal pour une transaction immobilière."</p>
+                        <p class="quote" data-i18n="review6-text">"Le meilleur notaire de Valence. Cordial et disponible. Prix optimal pour une transaction immobilière."</p>
                         <div class="reviewer">
                             <div class="avatar">SD</div>
                             <div class="reviewer-info">
@@ -900,6 +974,9 @@
                         </div>
                     </div>
                 </div>
+                <button class="nav-control nav-next" id="next-btn" aria-label="Siguiente">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
             </div>
             <div class="google-rating">
                 <span>Google Maps Rating: ⭐ 4.8 / 5 · basado en más de 20 opiniones</span>
@@ -909,43 +986,43 @@
         <!-- Appointment / Contact -->
         <section class="section container" id="contacto">
             <div class="section-title">
-                <h2>Solicite su Cita</h2>
-                <p>Estaremos encantados de atenderle y resolver sus dudas</p>
+                <h2 data-i18n="contact-title">Solicite su Cita</h2>
+                <p data-i18n="contact-subtitle">Estaremos encantados de atenderle y resolver sus dudas</p>
             </div>
             <div class="contact-content">
                 <div class="contact-form-box">
                     <form id="appointment-form">
                         <div class="form-group">
-                            <label for="name">Nombre completo *</label>
+                            <label for="name" data-i18n="form-name">Nombre completo *</label>
                             <input type="text" id="name" name="name" required placeholder="Ej: Juan Pérez">
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="phone">Teléfono *</label>
+                                <label for="phone" data-i18n="form-phone">Teléfono *</label>
                                 <input type="tel" id="phone" name="phone" required placeholder="963 00 00 00">
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
+                                <label for="email" data-i18n="form-email">Email</label>
                                 <input type="email" id="email" name="email" placeholder="correo@ejemplo.com">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="service">Servicio requerido</label>
+                            <label for="service" data-i18n="form-service-label">Servicio requerido</label>
                             <select id="service" name="service">
-                                <option value="">Seleccione un servicio...</option>
-                                <option value="compraventa">Compraventa de Inmuebles</option>
-                                <option value="testamentos">Testamentos</option>
-                                <option value="poderes">Poderes Notariales</option>
-                                <option value="sociedades">Constitución de Sociedades</option>
-                                <option value="herencias">Herencias</option>
-                                <option value="actas">Actas Notariales</option>
-                                <option value="capitulaciones">Capitulaciones Matrimoniales</option>
-                                <option value="extranjeros">Servicios para Extranjeros</option>
-                                <option value="otros">Otros trámites</option>
+                                <option value="" data-i18n="form-service-placeholder">Seleccione un servicio...</option>
+                                <option value="compraventa" data-i18n="service1-title">Compraventa de Inmuebles</option>
+                                <option value="testamentos" data-i18n="service2-title">Testamentos</option>
+                                <option value="poderes" data-i18n="service3-title">Poderes Notariales</option>
+                                <option value="sociedades" data-i18n="service4-title">Constitución de Sociedades</option>
+                                <option value="herencias" data-i18n="service5-title">Herencias</option>
+                                <option value="actas" data-i18n="service6-title">Actas Notariales</option>
+                                <option value="capitulaciones" data-i18n="service7-title">Capitulaciones Matrimoniales</option>
+                                <option value="extranjeros" data-i18n="service8-title">Servicios para Extranjeros</option>
+                                <option value="otros" data-i18n="form-service-other">Otros trámites</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Idioma preferido</label>
+                            <label data-i18n="form-lang-label">Idioma preferido</label>
                             <div class="radio-group">
                                 <label class="radio-option">
                                     <input type="radio" name="lang" value="es" checked> Español
@@ -959,50 +1036,50 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="message">Mensaje / Descripción breve</label>
+                            <label for="message" data-i18n="form-message">Mensaje / Descripción breve</label>
                             <textarea id="message" name="message" rows="4" placeholder="¿En qué podemos ayudarle?"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Solicitud de Cita</button>
-                        <div id="form-success">¡Gracias! Nos pondremos en contacto en breve para confirmar su cita.</div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;" data-i18n="form-submit">Enviar Solicitud de Cita</button>
+                        <div id="form-success" data-i18n="form-success-msg">¡Gracias! Nos pondremos en contacto en breve para confirmar su cita.</div>
                     </form>
                 </div>
                 <div class="contact-info">
-                    <h3>Información de Contacto</h3>
+                    <h3 data-i18n="info-title">Información de Contacto</h3>
                     <ul class="info-list">
                         <li>
                             <span class="info-icon">📞</span>
                             <div>
-                                <strong>Teléfono</strong><br>
+                                <strong data-i18n="info-phone">Teléfono</strong><br>
                                 <a href="tel:+34963528568">963 52 85 68</a>
                             </div>
                         </li>
                         <li>
                             <span class="info-icon">📠</span>
                             <div>
-                                <strong>Fax</strong><br>
+                                <strong data-i18n="info-fax">Fax</strong><br>
                                 963 52 53 54
                             </div>
                         </li>
                         <li>
                             <span class="info-icon">📧</span>
                             <div>
-                                <strong>Email</strong><br>
+                                <strong data-i18n="info-email">Email</strong><br>
                                 <a href="mailto:info@notariadiegosimo.es">info@notariadiegosimo.es</a>
                             </div>
                         </li>
                         <li>
                             <span class="info-icon">📍</span>
                             <div>
-                                <strong>Dirección</strong><br>
+                                <strong data-i18n="info-address">Dirección</strong><br>
                                 Gran Vía del Marqués del Túria, 49, 3º — 46005 Valencia
                             </div>
                         </li>
                         <li>
                             <span class="info-icon">🕐</span>
                             <div>
-                                <strong>Horario</strong><br>
-                                L–V: 9:30–14:00 y 16:00–19:30<br>
-                                <small>Cerrado del 15 al 25 de agosto.</small>
+                                <strong data-i18n="info-hours">Horario</strong><br>
+                                <span data-i18n="info-hours-val">L–V: 9:30–14:00 y 16:00–19:30</span><br>
+                                <small data-i18n="info-hours-note">Cerrado del 15 al 25 de agosto.</small>
                             </div>
                         </li>
                     </ul>
@@ -1010,7 +1087,7 @@
                         <svg width="40" height="40" viewBox="0 0 24 24" fill="var(--accent)">
                             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                         </svg>
-                        <span>Ver en Google Maps</span>
+                        <span data-i18n="info-map-link">Ver en Google Maps</span>
                     </a>
                 </div>
             </div>
@@ -1107,6 +1184,254 @@
     </script>
 
     <script>
+        const translations = {
+            es: {
+                "nav-start": "Inicio",
+                "nav-services": "Servicios",
+                "nav-why": "Por qué nosotros",
+                "nav-reviews": "Opiniones",
+                "nav-contact": "Contacto",
+                "cta-call": "📞 Llamar ahora",
+                "hero-title": "Su Notaría de Confianza en Valencia",
+                "hero-subtitle": "Servicios notariales en español, inglés y francés. Rápidos, profesionales y con la seguridad jurídica que necesita. Ubicados en el corazón de Valencia.",
+                "hero-cta-appointment": "Solicitar Cita",
+                "hero-cta-services": "Ver Servicios",
+                "trust-item1": "Notario Colegiado",
+                "trust-item2": "Atención en 3 idiomas",
+                "trust-item3": "+20 años de experiencia",
+                "services-title": "Nuestros Servicios Notariales",
+                "services-subtitle": "Ofrecemos una amplia gama de trámites con agilidad y rigor",
+                "service1-title": "Compraventa de Inmuebles",
+                "service1-desc": "Escrituras de compra, venta y transmisión de propiedades con total garantía jurídica.",
+                "service2-title": "Testamentos",
+                "service2-desc": "Redacción y firma de últimas voluntades con total confidencialidad y asesoramiento experto.",
+                "service3-title": "Poderes Notariales",
+                "service3-desc": "Poderes generales, especiales y preventivos para gestionar sus asuntos con seguridad.",
+                "service4-title": "Constitución de Sociedades",
+                "service4-desc": "Constitución y modificación de empresas, estatutos y actos mercantiles.",
+                "service5-title": "Herencias",
+                "service5-desc": "Aceptación, renuncia y adjudicación de herencias de forma ágil y transparente.",
+                "service6-title": "Actas Notariales",
+                "service6-desc": "Actas de presencia, manifestación y notoriedad para dejar constancia fehaciente.",
+                "service7-title": "Capitulaciones Matrimoniales",
+                "service7-desc": "Régimen económico matrimonial y acuerdos prenupciales adaptados a sus necesidades.",
+                "service8-title": "Servicios para Extranjeros",
+                "service8-desc": "Atención especializada en inglés y francés para residentes y no residentes en España.",
+                "services-bottom-text": "¿No encuentra lo que busca?",
+                "services-bottom-link": "Consúltenos sin compromiso →",
+                "why-title": "¿Por qué elegir nuestra notaría?",
+                "why-subtitle": "Diferenciación basada en el servicio al cliente y la eficiencia",
+                "feature1-title": "Precio Justo",
+                "feature1-desc": "Gestión eficiente que permite costes competitivos en Valencia.",
+                "feature2-title": "Rapidez",
+                "feature2-desc": "Gestión urgente disponible. Documentos listos en tiempo récord.",
+                "feature3-title": "Multilingüe",
+                "feature3-desc": "Atención fluida en español, inglés y francés. Sin barreras idiomáticas.",
+                "feature4-title": "Ubicación Céntrica",
+                "feature4-desc": "En pleno Eixample. Fácil acceso y excelente comunicación.",
+                "contact-title": "Solicite su Cita",
+                "contact-subtitle": "Estaremos encantados de atenderle y resolver sus dudas",
+                "form-name": "Nombre completo *",
+                "form-phone": "Teléfono *",
+                "form-email": "Email",
+                "form-service-label": "Servicio requerido",
+                "form-service-placeholder": "Seleccione un servicio...",
+                "form-service-other": "Otros trámites",
+                "form-lang-label": "Idioma preferido",
+                "form-message": "Mensaje / Descripción breve",
+                "form-submit": "Enviar Solicitud de Cita",
+                "form-success-msg": "¡Gracias! Nos pondremos en contacto en breve para confirmar su cita.",
+                "info-title": "Información de Contacto",
+                "info-phone": "Teléfono",
+                "info-fax": "Fax",
+                "info-email": "Email",
+                "info-address": "Dirección",
+                "info-hours": "Horario",
+                "info-hours-val": "L–V: 9:30–14:00 y 16:00–19:30",
+                "info-hours-note": "Cerrado del 15 al 25 de agosto.",
+                "info-map-link": "Ver en Google Maps",
+                "review1-text": "\"Excelente servicio, muy buena atención. La mejor notaría en Valencia tras haber pasado por varias.\"",
+                "review2-text": "\"Rápido y fiable, procesaron nuestros documentos con poco aviso. El notario y el asistente hablan un inglés excelente. Muy recomendable.\"",
+                "review3-text": "\"Notaría multilingüe y muy céntrica. Altamente recomendable tras muchos años de gestiones de todo tipo.\"",
+                "review4-text": "\"Trato amable y rápido. Me explicaron todo el proceso de la herencia con mucha claridad. Precio ajustado.\"",
+                "review5-text": "\"Mi notaría de confianza. Servicio y precio inmejorables. El notario es muy agradable y pragmático.\"",
+                "review6-text": "\"El mejor notario de Valencia. Cordial y disponible. Precio óptimo para una transacción inmobiliaria.\""
+            },
+            en: {
+                "nav-start": "Home",
+                "nav-services": "Services",
+                "nav-why": "Why Choose Us",
+                "nav-reviews": "Reviews",
+                "nav-contact": "Contact",
+                "cta-call": "📞 Call Now",
+                "hero-title": "Your Trusted Notary in Valencia",
+                "hero-subtitle": "Notary services in Spanish, English, and French. Fast, professional, and with the legal security you need. Located in the heart of Valencia.",
+                "hero-cta-appointment": "Book Appointment",
+                "hero-cta-services": "View Services",
+                "trust-item1": "Official Notary",
+                "trust-item2": "Service in 3 Languages",
+                "trust-item3": "+20 Years Experience",
+                "services-title": "Our Notary Services",
+                "services-subtitle": "We offer a wide range of procedures with speed and rigor",
+                "service1-title": "Property Sale",
+                "service1-desc": "Purchase, sale, and property transfer deeds with full legal guarantee.",
+                "service2-title": "Wills",
+                "service2-desc": "Drafting and signing of last wills with total confidentiality and expert advice.",
+                "service3-title": "Powers of Attorney",
+                "service3-desc": "General, special, and preventive powers to manage your affairs securely.",
+                "service4-title": "Company Formation",
+                "service4-desc": "Constitution and modification of companies, bylaws, and mercantile acts.",
+                "service5-title": "Inheritances",
+                "service5-desc": "Acceptance, waiver, and adjudication of inheritances swiftly and transparently.",
+                "service6-title": "Notarial Acts",
+                "service6-desc": "Acts of presence, manifestation, and notoriety to provide reliable evidence.",
+                "service7-title": "Marriage Agreements",
+                "service7-desc": "Marital economic regimes and prenuptial agreements tailored to your needs.",
+                "service8-title": "Services for Foreigners",
+                "service8-desc": "Specialized assistance in English and French for residents and non-residents.",
+                "services-bottom-text": "Can't find what you're looking for?",
+                "services-bottom-link": "Contact us without obligation →",
+                "why-title": "Why Choose Our Notary?",
+                "why-subtitle": "Differentiation based on customer service and efficiency",
+                "feature1-title": "Fair Price",
+                "feature1-desc": "Efficient management that allows competitive costs in Valencia.",
+                "feature2-title": "Speed",
+                "feature2-desc": "Urgent management available. Documents ready in record time.",
+                "feature3-title": "Multilingual",
+                "feature3-desc": "Fluent service in Spanish, English, and French. No language barriers.",
+                "feature4-title": "Central Location",
+                "feature4-desc": "In the heart of Eixample. Easy access and excellent connections.",
+                "contact-title": "Request an Appointment",
+                "contact-subtitle": "We will be happy to assist you and answer your questions",
+                "form-name": "Full Name *",
+                "form-phone": "Phone *",
+                "form-email": "Email",
+                "form-service-label": "Required Service",
+                "form-service-placeholder": "Select a service...",
+                "form-service-other": "Other procedures",
+                "form-lang-label": "Preferred Language",
+                "form-message": "Message / Brief description",
+                "form-submit": "Send Appointment Request",
+                "form-success-msg": "Thank you! We will contact you shortly to confirm your appointment.",
+                "info-title": "Contact Information",
+                "info-phone": "Phone",
+                "info-fax": "Fax",
+                "info-email": "Email",
+                "info-address": "Address",
+                "info-hours": "Hours",
+                "info-hours-val": "Mon–Fri: 9:30–14:00 & 16:00–19:30",
+                "info-hours-note": "Closed August 15–25.",
+                "info-map-link": "View on Google Maps",
+                "review1-text": "\"Excellent service, very good attention. The best notary in Valencia after having visited several.\"",
+                "review2-text": "\"Fast & reliable, they processed our documents on short notice. The notary and assistant speak excellent English. Highly recommended.\"",
+                "review3-text": "\"Multilingual and very central notary. Highly recommended after many years of management of all kinds.\"",
+                "review4-text": "\"Friendly and fast treatment. They explained the whole inheritance process to me very clearly. Adjusted price.\"",
+                "review5-text": "\"My trusted notary office. Unbeatable service and price. The notary is very pleasant and pragmatic.\"",
+                "review6-text": "\"The best notary in Valencia. Cordial and available. Optimal price for a real estate transaction.\""
+            },
+            fr: {
+                "nav-start": "Accueil",
+                "nav-services": "Services",
+                "nav-why": "Pourquoi nous",
+                "nav-reviews": "Avis",
+                "nav-contact": "Contact",
+                "cta-call": "📞 Appeler",
+                "hero-title": "Votre Notaire de Confiance à Valence",
+                "hero-subtitle": "Services notariaux en espagnol, anglais et français. Rapides, professionnels et avec la sécurité juridique dont vous avez besoin.",
+                "hero-cta-appointment": "Prendre Rendez-vous",
+                "hero-cta-services": "Voir Services",
+                "trust-item1": "Notaire Officiel",
+                "trust-item2": "Service en 3 Langues",
+                "trust-item3": "+20 Ans d'Expérience",
+                "services-title": "Nos Services Notariaux",
+                "services-subtitle": "Une large gamme de procédures traitées avec agilité et rigueur",
+                "service1-title": "Achat/Vente Immobilière",
+                "service1-desc": "Actes d'achat, de vente et de transfert de propriété avec garantie juridique complète.",
+                "service2-title": "Testaments",
+                "service2-desc": "Rédaction et signature de dernières volontés en toute confidentialité.",
+                "service3-title": "Procurations",
+                "service3-desc": "Pouvoirs généraux, spéciaux et préventifs pour gérer vos affaires en toute sécurité.",
+                "service4-title": "Constitution de Sociétés",
+                "service4-desc": "Constitution et modification d'entreprises, statuts et actes mercantiles.",
+                "service5-title": "Successions",
+                "service5-desc": "Acceptation et adjudication de successions de manière agile et transparente.",
+                "service6-title": "Actes Notariés",
+                "service6-desc": "Actes de présence et de manifestation pour fournir une preuve fiable.",
+                "service7-title": "Régimes Matrimoniaux",
+                "service7-desc": "Contrats de mariage et accords prénuptiaux adaptés à vos besoins.",
+                "service8-title": "Services pour Étrangers",
+                "service8-desc": "Assistance spécialisée en anglais et français pour résidents et non-résidents.",
+                "services-bottom-text": "Vous ne trouvez pas ce que vous cherchez ?",
+                "services-bottom-link": "Contactez-nous sans engagement →",
+                "why-title": "Pourquoi Choisir Notre Étude ?",
+                "why-subtitle": "Différenciation basée sur le service client et l'efficacité",
+                "feature1-title": "Prix Juste",
+                "feature1-desc": "Gestion efficace permettant des tarifs compétitifs à Valence.",
+                "feature2-title": "Rapidité",
+                "feature2-desc": "Gestion urgente disponible. Documents prêts en un temps record.",
+                "feature3-title": "Multilingue",
+                "feature3-desc": "Service fluide en espagnol, anglais et français. Sans barrières linguistiques.",
+                "feature4-title": "Emplacement Central",
+                "feature4-desc": "Au cœur de l'Eixample. Accès facile y excellente connexion.",
+                "contact-title": "Demander un Rendez-vous",
+                "contact-subtitle": "Nous serons ravis de vous aider et de répondre à vos questions",
+                "form-name": "Nom Complet *",
+                "form-phone": "Téléphone *",
+                "form-email": "Email",
+                "form-service-label": "Service Requis",
+                "form-service-placeholder": "Sélectionnez un service...",
+                "form-service-other": "Autres procédures",
+                "form-lang-label": "Langue de Préférence",
+                "form-message": "Message / Brève description",
+                "form-submit": "Envoyer la Demande",
+                "form-success-msg": "Merci ! Nous vous contacterons bientôt pour confirmer votre rendez-vous.",
+                "info-title": "Informations de Contact",
+                "info-phone": "Téléphone",
+                "info-fax": "Fax",
+                "info-email": "Email",
+                "info-address": "Adresse",
+                "info-hours": "Horaires",
+                "info-hours-val": "Lun–Ven: 9:30–14:00 & 16:00–19:30",
+                "info-hours-note": "Fermé du 15 au 25 août.",
+                "info-map-link": "Voir sur Google Maps",
+                "review1-text": "\"Excellent service, très bonne attention. Le meilleur notaire de Valence après en avoir visité plusieurs.\"",
+                "review2-text": "\"Rapide et fiable, ils ont traité nos documents avec un court préavis. Le notaire et l'assistant parlent un excellent anglais. Hautement recommandé.\"",
+                "review3-text": "\"Notaire multilingue et très central. Hautement recommandé après de nombreuses années de gestion de toutes sortes.\"",
+                "review4-text": "\"Traitement amical et rapide. Ils m'ont expliqué tout le processus d'héritage très clairement. Prix ajusté.\"",
+                "review5-text": "\"Mon notaire de confiance. Service et prix imbattables. Le notaire est très agréable et pragmatique.\"",
+                "review6-text": "\"Le meilleur notaire de Valence. Cordial et disponible. Prix optimal pour une transaction immobilière.\""
+            }
+        };
+
+        let currentLang = localStorage.getItem('notary-lang') || 'es';
+
+        const updateLanguage = (lang) => {
+            currentLang = lang;
+            localStorage.setItem('notary-lang', lang);
+            
+            // Update active state in buttons
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            // Update all elements with data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                }
+            });
+
+            // Update placeholders
+            document.querySelectorAll('[placeholder]').forEach(el => {
+                // For simplicity, we only update specific placeholders if needed
+                // or use keys for them. Let's stick to the main UI for now.
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        };
+
         // Reveal sections on scroll
         const observeSections = () => {
             const observer = new IntersectionObserver((entries) => {
@@ -1147,11 +1472,9 @@
         const handleMobileMenu = () => {
             const btn = document.querySelector('.mobile-menu-btn');
             const nav = document.getElementById('main-nav');
+            const items = nav.querySelector('ul');
             
             btn.addEventListener('click', () => {
-                // In a single page, we can just toggle a class or scroll
-                // For simplicity, we just scroll to the top nav or show links
-                const items = nav.querySelector('ul');
                 if (items.style.display === 'flex') {
                     items.style.display = 'none';
                 } else {
@@ -1166,6 +1489,43 @@
                     items.style.boxShadow = '0 10px 15px rgba(0,0,0,0.1)';
                 }
             });
+
+            // Close menu on link click
+            items.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 968) {
+                        items.style.display = 'none';
+                    }
+                });
+            });
+        };
+
+        // Language Switcher Initialization
+        const initLangSwitcher = () => {
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    updateLanguage(btn.dataset.lang);
+                });
+            });
+            updateLanguage(currentLang);
+        };
+
+        const handleReviewsCarousel = () => {
+            const carousel = document.getElementById('testimonial-carousel');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            if (!carousel || !prevBtn || !nextBtn) return;
+
+            const scrollAmount = 350;
+
+            nextBtn.addEventListener('click', () => {
+                carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            });
+
+            prevBtn.addEventListener('click', () => {
+                carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            });
         };
 
         // Init
@@ -1173,6 +1533,8 @@
             observeSections();
             handleForm();
             handleMobileMenu();
+            initLangSwitcher();
+            handleReviewsCarousel();
         });
     </script>
 </body>
